@@ -6,3 +6,9 @@ JWT auth context with role-based access.
     We’ll implement an AuthContext using useReducer. It will store the JWT in localStorage, parse roles from the payload (stubbed), and expose helpers to login, logout, and guard routes.
 Stubbed API client and services.
     We’ll create a thin fetch wrapper that attaches the JWT when present. Services will expose async functions ready to swap to a real backend later. For now, responses are mocked.
+Routing with protected routes and role-based guards.
+    We’ll define route configuration and a ProtectedRoute component that checks authentication and roles. Unauthorized users are redirected to login.
+Accessible UI components.
+    We’ll build reusable components: Navbar with auth awareness, FormField for labeled inputs, ConsignmentCard, a basic Chart (SVG), and Google Map wrapper.
+Authentication pages and dashboard.
+    We’ll implement Login and Register pages with accessible forms, then a Dashboard listing consignments using our service. The dashboard gives quick visibility into shipments.
