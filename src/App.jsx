@@ -1,10 +1,21 @@
+// src/App.jsx
+import React from 'react'
+import { Outlet, Link, useLocation } from 'react-router-dom'
+import Navbar from './components/Navbar.jsx'
 
-function App() {
+export default function App() {
+  const location = useLocation()
+  const hideNavbarOnAuth = ['/login', '/register'].includes(location.pathname)
   return (
     <>
-      <h1>Realtime Cargo Tracking Software</h1>
+      {!hideNavbarOnAuth && <Navbar />}
+      <main className="container">
+        <Outlet />
+      </main>
+      <footer className="container" aria-label="Footer">
+        <hr />
+        <p><small>© {new Date().getFullYear()} Cargo Tracker</small></p>
+      </footer>
     </>
   )
 }
-
-export default App
