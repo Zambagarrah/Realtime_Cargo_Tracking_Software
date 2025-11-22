@@ -1,0 +1,8 @@
+Initialised the prj with Yarn, Vite & React-router-dom.
+Folder structure and reusable conventions.
+Global styles and accessibility-friendly base.
+    We’ll define simple CSS variables and global resets for a clean, readable UI. Semantic HTML and ARIA attributes will be used across components.
+JWT auth context with role-based access.
+    We’ll implement an AuthContext using useReducer. It will store the JWT in localStorage, parse roles from the payload (stubbed), and expose helpers to login, logout, and guard routes.
+Stubbed API client and services.
+    We’ll create a thin fetch wrapper that attaches the JWT when present. Services will expose async functions ready to swap to a real backend later. For now, responses are mocked.
