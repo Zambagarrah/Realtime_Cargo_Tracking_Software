@@ -15,6 +15,7 @@ import ConsignmentForm from '../pages/ConsignmentForm.jsx'
 import RealtimeTracking from '../pages/RealtimeTracking.jsx'
 import AdminPanel from '../pages/AdminPanel.jsx'
 import ProtectedRoute from '../components/ProtectedRoute.jsx'
+import NotFound from '../pages/NotFound.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route index element={<Dashboard />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
+      <Route path="*" element={<NotFound />} />
 
       {/* Protected routes for authenticated users */}
       <Route element={<ProtectedRoute roles={['user', 'admin']} />}>
