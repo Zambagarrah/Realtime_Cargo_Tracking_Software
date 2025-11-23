@@ -3,10 +3,28 @@ import React, { useEffect, useState } from 'react'
 import { listConsignments } from '../services/consignmentService.js'
 import ConsignmentCard from '../components/ConsignmentCard.jsx'
 import Chart from '../components/Chart.jsx'
+import Loader from '../components/Loader.jsx'
+import ErrorMessage from '../components/ErrorMessage.jsx'
 
 export default function Dashboard() {
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const [consignments, setConsignments] = useState([])
 
+  useEffect(() => {
+    listConsignments()
+      .then(setConsignments)
+      .catch(() => setError('Failed to load consignments.'))
+      .finally(() => setLoading(false))
+  }, [])
+
+  if (loading) return <Loader label="Loading consignments..." />
+  if (error) return <ErrorMessage message={error} />
+
+
+
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     listConsignments().then(setConsignments)
   }, [])
