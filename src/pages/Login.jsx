@@ -27,8 +27,18 @@ export default function Login() {
       <h1 id="login-title">Login</h1>
       {error && <div role="alert" className="card" style={{ marginBottom: '12px' }}>{error}</div>}
       <form onSubmit={onSubmit} aria-describedby="login-help" className="card">
-        <FormField label="Email" id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+        <FormField
+          label="Email"
+          id="email"
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+          error={!email.includes('@') ? 'Enter a valid email' : null}
+        />
         <FormField label="Password" id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+
+
         <button type="submit" className="card" aria-label="Submit login">Login</button>
       </form>
       <p id="login-help"><small>Use an email containing “admin” to log in as admin.</small></p>
