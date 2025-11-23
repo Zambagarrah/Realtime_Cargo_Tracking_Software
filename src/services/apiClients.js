@@ -9,6 +9,14 @@ export async function apiFetch(path, options = {}) {
     ...options.headers,
   }
 
+  if (res.status === 401) {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    window.location.href = '/login'
+    return
+  }
+
+
   const res = await fetch(`${BASE_URL}${path}`, { ...options, headers })
   // For stubs, simulate 200 OK with JSON if not actual backend:
   if (!res.ok) {

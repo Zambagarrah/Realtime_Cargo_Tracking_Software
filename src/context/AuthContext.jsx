@@ -48,6 +48,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     dispatch({ type: 'LOGOUT' })
+    window.location.href = '/login' // 👈 force redirect
   }
 
   const value = {

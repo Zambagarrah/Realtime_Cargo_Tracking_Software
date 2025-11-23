@@ -24,7 +24,6 @@ export default function Dashboard() {
 
 
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     listConsignments().then(setConsignments)
   }, [])
