@@ -12,3 +12,15 @@ Accessible UI components.
     We’ll build reusable components: Navbar with auth awareness, FormField for labeled inputs, ConsignmentCard, a basic Chart (SVG), and Google Map wrapper.
 Authentication pages and dashboard.
     We’ll implement Login and Register pages with accessible forms, then a Dashboard listing consignments using our service. The dashboard gives quick visibility into shipments.
+Consignment detail and creation form.
+    We’ll implement viewing details (including a map marker) and creating new consignments with validation. This supports daily operations for dispatchers.
+Realtime tracking (polling stub with Google Maps).
+    We’ll simulate realtime updates via polling. When a real backend or WebSocket is available, you can switch the data source easily.
+Admin panel with user management and analytics.
+    We’ll provide CRUD for users and show simple analytics charts. Route is restricted to admins by ProtectedRoute.
+Hook for guarding links (optional UX improvement).
+    We’ll add a tiny hook that you can use if you want to prevent accidental navigation away from dirty forms. This is optional and shows how to keep UX thoughtful using built-in hooks.
+
+Add a NotFound (404) Page
+Add Loading and Error States.
+    We’ll add a reusable Loader and ErrorMessage component.
