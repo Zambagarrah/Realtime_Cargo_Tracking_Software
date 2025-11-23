@@ -9,6 +9,12 @@ export default function AdminPanel() {
   const [consignments, setConsignments] = useState([])
   const [newUser, setNewUser] = useState({ name: '', email: '', role: 'user' })
   const [editing, setEditing] = useState(null)
+  const [userQuery, setUserQuery] = useState('')
+
+  const filteredUsers = users.filter(u =>
+    u.name.toLowerCase().includes(userQuery.toLowerCase()) ||
+    u.email.toLowerCase().includes(userQuery.toLowerCase())
+  )
 
   useEffect(() => {
     listUsers().then(setUsers)
@@ -75,6 +81,17 @@ export default function AdminPanel() {
       </form>
 
       <ul aria-label="User list" style={{ listStyle: 'none', padding: 0 }}>
+        <input
+          type="search"
+          placeholder="Search users..."
+          value={userQuery}
+          onChange={e => setUserQuery(e.target.value)}
+          className="card"
+          style={{ marginBottom: '16px', width: '100%' }}
+        />
+        {filteredUsers.map(u => (
+          <li key={u.id} className="card">...</li>
+        ))}
         {users.map(u => (
           <li key={u.id} className="card" style={{ marginBottom: '12px' }}>
             {editing?.id === u.id ? (

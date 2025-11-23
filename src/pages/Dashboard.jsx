@@ -11,6 +11,14 @@ export default function Dashboard() {
   const [error, setError] = useState(null)
   const [consignments, setConsignments] = useState([])
 
+  const [query, setQuery] = useState('')
+
+  const filtered = consignments.filter(c =>
+    c.reference.toLowerCase().includes(query.toLowerCase()) ||
+    c.senderName.toLowerCase().includes(query.toLowerCase()) ||
+    c.receiverName.toLowerCase().includes(query.toLowerCase())
+  )
+
   useEffect(() => {
     listConsignments()
       .then(setConsignments)
@@ -21,7 +29,7 @@ export default function Dashboard() {
   if (loading) return <Loader label="Loading consignments..." />
   if (error) return <ErrorMessage message={error} />
 
-
+  
 
 
   useEffect(() => {
@@ -38,6 +46,16 @@ export default function Dashboard() {
     <section aria-labelledby="dashboard-title">
       <h1 id="dashboard-title">Consignment Tracking Dashboard</h1>
       {chartData.length > 0 && <Chart data={chartData} />}
+      <input
+        type="search"
+        placeholder="Search consignments..."
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        className="card"
+        style={{ marginBottom: '16px', width: '100%' }}
+      />
+
+      {filtered.map(c => <ConsignmentCard key={c.id} consignment={c} />)}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
         {consignments.map(c => <ConsignmentCard key={c.id} consignment={c} />)}
       </div>
