@@ -1,11 +1,12 @@
 // src/App.jsx
 import React from 'react'
-import { Outlet, Link, useLocation } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 
 export default function App() {
   const location = useLocation()
   const hideNavbarOnAuth = ['/login', '/register'].includes(location.pathname)
+
   return (
     <>
       {!hideNavbarOnAuth && <Navbar />}

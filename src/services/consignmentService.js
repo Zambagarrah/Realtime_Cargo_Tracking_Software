@@ -1,57 +1,45 @@
-// src/services/consignmentService.js
-// Recommended consignment model:
-// { id, reference, senderName, senderPhone, receiverName, receiverPhone,
-//   origin, destination, cargoType, weightKg, status, currentLocation: { lat, lng },
-//   lastUpdated, notes }
+import { mockConsignments } from '../data/Data.jsx'
 
-const mockConsignments = [
-  {
-    id: 'c-1001',
-    reference: 'REF-1001',
-    senderName: 'Alpha Ltd',
-    senderPhone: '+254700111222',
-    receiverName: 'Beta Traders',
-    receiverPhone: '+254700333444',
-    origin: 'Mombasa',
-    destination: 'Nairobi',
-    cargoType: 'Containers',
-    weightKg: 12000,
-    status: 'In Transit',
-    currentLocation: { lat: -4.0435, lng: 39.6682 },
-    lastUpdated: new Date().toISOString(),
-    notes: 'Handle with care',
-  },
-]
+let consignments = [...mockConsignments]
 
 export async function listConsignments() {
-  await new Promise(r => setTimeout(r, 400))
-  return mockConsignments
+  await new Promise(r => setTimeout(r, 300))
+  return consignments
 }
 
 export async function getConsignmentById(id) {
   await new Promise(r => setTimeout(r, 300))
-  return mockConsignments.find(c => c.id === id) || null
+  return consignments.find(c => c.id === id) || null
 }
 
 export async function createConsignment(payload) {
-  await new Promise(r => setTimeout(r, 500))
+  await new Promise(r => setTimeout(r, 300))
   const newC = {
     ...payload,
-    id: `c-${Math.floor(Math.random() * 100000)}`,
+    id: `c-${Date.now()}`,
     reference: payload.reference || `REF-${Math.floor(Math.random() * 100000)}`,
     status: payload.status || 'Pending',
     lastUpdated: new Date().toISOString(),
   }
-  mockConsignments.push(newC)
+  consignments.push(newC)
   return newC
 }
 
 export async function updateConsignment(id, updates) {
-  await new Promise(r => setTimeout(r, 500))
-  const idx = mockConsignments.findIndex(c => c.id === id)
-  if (idx >= 0) {
-    mockConsignments[idx] = { ...mockConsignments[idx], ...updates, lastUpdated: new Date().toISOString() }
-    return mockConsignments[idx]
+  await new Promise(r => setTimeout(r, 300))
+  const index = consignments.findIndex(c => c.id === id)
+  if (index !== -1) {
+    consignments[index] = {
+      ...consignments[index],
+      ...updates,
+      lastUpdated: new Date().toISOString(),
+    }
+    return consignments[index]
   }
   return null
+}
+export async function deleteConsignment(id) {
+  await new Promise(r => setTimeout(r, 300))
+  consignments = consignments.filter(c => c.id !== id)
+  return { success: true }
 }
