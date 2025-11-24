@@ -21,6 +21,16 @@ Admin panel with user management and analytics.
 Hook for guarding links (optional UX improvement).
     We’ll add a tiny hook that you can use if you want to prevent accidental navigation away from dirty forms. This is optional and shows how to keep UX thoughtful using built-in hooks.
 
-Add a NotFound (404) Page
+Add a NotFound (404) Page.
 Add Loading and Error States.
     We’ll add a reusable Loader and ErrorMessage component.
+Add Logout Redirect + Session Expiry Handling.
+    Update AuthContext.jsx.
+    Inside AuthProvider, enhance the logout() function.
+Add Form Validation Feedback.
+    We’ll enhance FormField to show validation errors.
+Enhance UI/UX: Layout + Responsive Navbar.
+    Update Navbar.jsx with responsive layout
+Add Search and Filter to Dashboard and Admin Panel.
+    Update Dashboard.jsx
+Created a Centralised Data file to record everything
