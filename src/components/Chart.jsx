@@ -6,7 +6,7 @@ export default function Chart({ data, height = 160 }) {
   // data: [{ label, value }]
   const max = Math.max(...data.map(d => d.value), 1)
   const barWidth = 40
-  const gap = 16
+  const gap = 40
   const width = data.length * (barWidth + gap) + gap
 
   return (
