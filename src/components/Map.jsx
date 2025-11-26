@@ -1,6 +1,7 @@
 // src/components/Map.jsx
 import React, { useEffect, useRef } from 'react'
 
+
 // Google Maps integration: requires a valid API key in VITE_GOOGLE_MAPS_API_KEY
 // This component loads the Maps script and renders a single marker.
 export default function Map({ center = { lat: -4.0435, lng: 39.6682 }, zoom = 7, marker }) {

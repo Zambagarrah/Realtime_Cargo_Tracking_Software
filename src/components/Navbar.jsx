@@ -5,10 +5,14 @@ import AuthContext from '../context/AuthContext.jsx'
 export default function Navbar() {
   const { isAuthenticated, user, logout } = useContext(AuthContext)
 
+  // Define linkClass function for active styling
+  const linkClass = ({ isActive }) =>
+    `card nav-link ${isActive ? 'active' : ''}`
+
   return (
     <nav className="navbar">
       <div className="navbar-links">
-        <NavLink to="/" className="card nav-link" activeClassName="active">Dashboard</NavLink>
+        <NavLink to="/" className={linkClass}>Dashboard</NavLink>
         {isAuthenticated && (
           <>
             <NavLink to="/consignments/new" className="card" activeClassName="active">New</NavLink>
@@ -24,6 +28,9 @@ export default function Navbar() {
           <>
             <NavLink to="/login" className="card" activeClassName="active">Login</NavLink>
             <NavLink to="/register" className="card" activeClassName="active">Register</NavLink>
+            <NavLink to="/contact" className="card nav-link">Contact</NavLink>
+
+
           </>
         ) : (
           <button onClick={logout}>

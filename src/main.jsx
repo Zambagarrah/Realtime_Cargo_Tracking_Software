@@ -6,6 +6,9 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './styles/variables.css'
 import './styles/globals.css'
+import App from './App.jsx'
+import Contact from './pages/Contact.jsx'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
