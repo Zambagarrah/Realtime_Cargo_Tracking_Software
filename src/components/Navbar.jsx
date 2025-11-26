@@ -1,36 +1,34 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import AuthContext from '../context/AuthContext.jsx'
 
 export default function Navbar() {
   const { isAuthenticated, user, logout } = useContext(AuthContext)
 
   return (
-    <nav className="container" style={{
-      display: 'flex',
-      flexWrap: 'wrap',
-      gap: '12px',
-      alignItems: 'center',
-      justifyContent: 'space-between'
-    }}>
-      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-        <Link to="/" className="card">Dashboard</Link>
+    <nav className="navbar">
+      <div className="navbar-links">
+        <NavLink to="/" className="card" activeClassName="active">Dashboard</NavLink>
         {isAuthenticated && (
           <>
-            <Link to="/consignments/new" className="card">New</Link>
-            <Link to="/realtime" className="card">Realtime</Link>
-            {user?.role === 'admin' && <Link to="/admin" className="card">Admin</Link>}
+            <NavLink to="/consignments/new" className="card" activeClassName="active">New</NavLink>
+            <NavLink to="/realtime" className="card" activeClassName="active">Realtime</NavLink>
+            {user?.role === 'admin' && (
+              <NavLink to="/admin" className="card" activeClassName="active">Admin</NavLink>
+            )}
           </>
         )}
       </div>
-      <div>
+      <div className="navbar-auth">
         {!isAuthenticated ? (
           <>
-            <Link to="/login" className="card">Login</Link>
-            <Link to="/register" className="card" style={{ marginLeft: '8px' }}>Register</Link>
+            <NavLink to="/login" className="card" activeClassName="active">Login</NavLink>
+            <NavLink to="/register" className="card" activeClassName="active">Register</NavLink>
           </>
         ) : (
-          <button className="card" onClick={logout}>Logout ({user?.role})</button>
+          <button onClick={logout}>
+            Logout {user?.role && `(${user.role})`}
+          </button>
         )}
       </div>
     </nav>

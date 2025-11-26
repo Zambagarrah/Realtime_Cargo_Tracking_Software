@@ -57,4 +57,42 @@ button, input, select, textarea { font: inherit; }
   transform: translateY(-2px); 
   cursor: pointer;
 }
-  
+
+/*Restyle the top navbar contents*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.navbar-links,
+.navbar-auth {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.navbar a,
+.navbar button {
+  color: var(--color-primary-contrast);
+  background: transparent;
+  border: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.navbar a.active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
