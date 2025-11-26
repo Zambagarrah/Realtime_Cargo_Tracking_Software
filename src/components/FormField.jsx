@@ -1,10 +1,9 @@
-// src/components/FormField.jsx
 import React from 'react'
 
-export default function FormField({ label, id, type = 'text', value, onChange, required, placeholder, ...rest }) {
+export default function FormField({ label, id, type = 'text', value, onChange, required, placeholder, error, ...rest }) {
   return (
     <div style={{ marginBottom: '12px' }}>
-      <label htmlFor={id} style={{ display: 'block', marginBottom: '6px' }}>{label}{required && ' *'}</label>
+      <label htmlFor={id}>{label}{required && ' *'}</label>
       <input
         id={id}
         name={id}
@@ -13,11 +12,12 @@ export default function FormField({ label, id, type = 'text', value, onChange, r
         onChange={onChange}
         required={required}
         placeholder={placeholder}
-        aria-required={required}
+        aria-invalid={!!error}
         className="card"
-        style={{ width: '100%' }}
+        style={{ width: '100%', borderColor: error ? '#dc2626' : undefined }}
         {...rest}
       />
+      {error && <p style={{ color: '#dc2626', fontSize: '0.875rem' }}>{error}</p>}
     </div>
   )
 }

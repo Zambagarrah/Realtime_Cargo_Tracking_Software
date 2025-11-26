@@ -1,12 +1,11 @@
-// src/context/AuthContext.jsx
 import React, { createContext, useReducer, useEffect } from 'react'
 
 const AuthContext = createContext(null)
 
 const initialState = {
-  user: null,        // { id, name, email, role }
-  token: null,       // JWT string
-  loading: true,     // while restoring session
+  user: null,
+  token: null,
+  loading: true,
 }
 
 function authReducer(state, action) {
@@ -36,9 +35,7 @@ export function AuthProvider({ children }) {
   }, [])
 
   const login = async (email, password) => {
-    // Stubbed login via service
-    const { token, user } = await import('../services/authService.js')
-      .then(m => m.login(email, password))
+    const { token, user } = await import('../services/authService.js').then(m => m.login(email, password))
     localStorage.setItem('token', token)
     localStorage.setItem('user', JSON.stringify(user))
     dispatch({ type: 'LOGIN_SUCCESS', payload: { token, user } })
@@ -48,6 +45,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     dispatch({ type: 'LOGOUT' })
+    window.location.href = '/login'
   }
 
   const value = {
