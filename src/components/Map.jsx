@@ -51,5 +51,5 @@ export default function Map({ center = { lat: -4.0435, lng: 39.6682 }, zoom = 7,
     }
   }, [center, marker])
 
-  return <div role="img" aria-label="Map showing current location" style={{ height: '360px' }} className="card" ref={mapRef} />
+  return <div role="img" aria-label="Map showing current location" style={{ height: '360px' }} className="card map-card" ref={mapRef} />
 }
