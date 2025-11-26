@@ -8,10 +8,12 @@ export default function ConsignmentCard({ consignment }) {
   } = consignment
 
   return (
-    <article className="card" aria-labelledby={`c-${id}-title`}>
+    <article className="card cargo-card" aria-labelledby={`c-${id}-title`}>
       <h3 id={`c-${id}-title`} style={{ marginTop: 0 }}>{reference} : {status}</h3>
       <p><strong>Sender:</strong> {senderName} | <strong>Receiver:</strong> {receiverName}</p>
+      <p><strong>Receiver:</strong> {receiverName}</p>
       <p><strong>Route:</strong> {origin} → {destination} | <strong>Type:</strong> {cargoType}</p>
+      <p><strong>Type:</strong> {cargoType}</p>
       <p><small>Updated: {new Date(lastUpdated).toLocaleString()}</small></p>
       <Link to={`/consignments/${id}`} aria-label={`View details for ${reference}`}>View details</Link>
     </article>
