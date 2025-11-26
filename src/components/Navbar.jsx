@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-links">
-        <NavLink to="/" className="card" activeClassName="active">Dashboard</NavLink>
+        <NavLink to="/" className="card nav-link" activeClassName="active">Dashboard</NavLink>
         {isAuthenticated && (
           <>
             <NavLink to="/consignments/new" className="card" activeClassName="active">New</NavLink>

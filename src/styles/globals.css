@@ -96,3 +96,77 @@ button, input, select, textarea { font: inherit; }
 .navbar a.active {
   background-color: rgba(255, 255, 255, 0.25);
 }
+
+/*loader card*/
+.loader-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  animation: fadeIn 0.3s ease-in;
+}
+
+.loader-label {
+  color: var(--color-muted);
+  margin-top: var(--space-3);
+}
+
+/*Map*/
+.map-card {
+  height: 360px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+
+/*consignment card*/
+.consignment-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.consignment-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.status {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: var(--space-2);
+}
+
+.status.in-transit {
+  background-color: var(--color-info);
+  color: var(--color-inverse);
+}
+
+.status.delivered {
+  background-color: var(--color-success);
+  color: var(--color-inverse);
+}
+
+.status.awaiting {
+  background-color: var(--color-warning);
+  color: var(--color-inverse);
+}
+
+.status.returned {
+  background-color: var(--color-accent-pink);
+  color: var(--color-inverse);
+}
+
+.status.canceled {
+  background-color: var(--color-error);
+  color: var(--color-inverse);
+}
