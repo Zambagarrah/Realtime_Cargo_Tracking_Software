@@ -194,7 +194,7 @@ button, input, select, textarea { font: inherit; }
   color: var(--color-inverse);
 }
 
-/* Responsive Contact Card */
+/* Contact Card Stylings*/
 .contact-card {
   max-width: 760px;
   margin: 28px auto;
@@ -336,3 +336,35 @@ button, input, select, textarea { font: inherit; }
     font-size: 1rem;
   }
 }
+
+/*Footer stylings*/
+.footer {
+  margin-top: var(--space-6);
+  padding: var(--space-4) 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.footer-contact  {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-brand h4 {
+  margin: 0 0 var(--space-2);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+

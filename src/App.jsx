@@ -18,7 +18,19 @@ export default function App() {
       </main>
       <footer className="container" aria-label="Footer">
         <hr />
-        <p><small>© {new Date().getFullYear()} Cargo Tracker</small></p>
+<div className="footer-content">
+    <div className="footer-brand">
+      <h4>Cargo Tracker</h4>
+      <p><small>© {new Date().getFullYear()} Cargo Tracker. All rights reserved.</small></p>
+    </div>
+
+    
+
+    <div className="footer-contact">
+      <p><strong>Email:</strong> <a href="mailto:marvinbernard2018@gmail.com">marvinbernard2018@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+254113636517">+254 113 636 517</a></p>
+    </div>
+  </div>
       </footer>
     </>
   )
