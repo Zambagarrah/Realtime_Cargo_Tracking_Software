@@ -1,20 +1,27 @@
-// src/pages/Contact.jsx
-import React, { useState } from 'react'
+ // src/pages/Contact.jsx
+import React, { useRef } from 'react'
+import emailjs from '@emailjs/browser'
 
 export default function Contact() {
-const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+const form = useRef()
 
-const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-}
-
-const handleSubmit = (e) => {
+const sendEmail = (e) => {
     e.preventDefault()
-    // For now, just log the data. Later, connect to backend.
-    console.log('Contact form submitted:', formData)
-    alert('Thank you for reaching out! We will get back to you soon.')
-    setFormData({ name: '', email: '', message: '' }) // reset form
+
+    emailjs.sendForm(
+      'service_zhx2qem',         // EmailJS service ID
+      'template_9mto1tg',        // EmailJS template ID
+    form.current,
+      { publicKey: 'PpOAOLBRPnQJPwLyi' } // Your EmailJS public key
+    )
+    .then(() => {
+    alert('Message sent successfully!')
+    }, (error) => {
+    console.error('FAILED...', error.text)
+    alert('Oops, something went wrong.')
+    })
+
+    e.target.reset()
 }
 
 return (
@@ -36,18 +43,18 @@ return (
 
         <p>Or send us a message directly:</p>
 
-        <form onSubmit={handleSubmit} className="contact-form">
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
         <div>
             <label htmlFor="name">Name:</label>
-            <input id="name" name="name" type="text" value={formData.name} onChange={handleChange} required />
+            <input id="name" name="user_name" type="text" required />
         </div>
         <div>
             <label htmlFor="email">Email:</label>
-            <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required />
+            <input id="email" name="user_email" type="email" required />
         </div>
         <div>
             <label htmlFor="message">Message:</label>
-            <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange} required />
+            <textarea id="message" name="message" rows="4" required />
         </div>
         <button type="submit">Send</button>
         </form>
