@@ -33,7 +33,7 @@ return (
         <ul className="contact-list">
         <li>
             <strong>Email:</strong>{' '}
-            <a href="mailto:support@cargoapp.com">support@cargoapp.com</a>
+            <a href="mailto:marvinbernard2018@gmail.com">marvinbernard2018@gmail.com</a>
         </li>
         <li>
             <strong>Phone:</strong>{' '}
