@@ -13,7 +13,8 @@ export default function App() {
     <>
       {!hideNavbarOnAuth && <Navbar />}
       <main className="container">
-        <Outlet />
+        <Outlet  />
+        
       </main>
       <footer className="container" aria-label="Footer">
         <hr />

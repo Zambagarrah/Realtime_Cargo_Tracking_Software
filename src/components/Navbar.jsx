@@ -13,6 +13,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-links">
         <NavLink to="/" className={linkClass}>Dashboard</NavLink>
+        <NavLink to="/contact" className={linkClass}>Contact</NavLink>
         {isAuthenticated && (
           <>
             <NavLink to="/consignments/new" className="card" activeClassName="active">New</NavLink>
@@ -28,7 +29,6 @@ export default function Navbar() {
           <>
             <NavLink to="/login" className="card" activeClassName="active">Login</NavLink>
             <NavLink to="/register" className="card" activeClassName="active">Register</NavLink>
-            <NavLink to="/contact" className="card nav-link">Contact</NavLink>
 
 
           </>
