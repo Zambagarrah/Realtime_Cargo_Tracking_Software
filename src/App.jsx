@@ -2,6 +2,8 @@
 import React from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
+import Contact from './pages/Contact.jsx'
+
 
 export default function App() {
   const location = useLocation()
@@ -11,7 +13,8 @@ export default function App() {
     <>
       {!hideNavbarOnAuth && <Navbar />}
       <main className="container">
-        <Outlet />
+        <Outlet  />
+        
       </main>
       <footer className="container" aria-label="Footer">
         <hr />

@@ -1,3 +1,4 @@
+// src/router/routes.jsx
 import React from 'react'
 import {
   createBrowserRouter,
@@ -7,6 +8,7 @@ import {
 } from 'react-router-dom'
 
 import App from '../App.jsx'
+import Contact from '../pages/Contact.jsx'
 import Login from '../pages/Login.jsx'
 import Register from '../pages/Register.jsx'
 import Dashboard from '../pages/Dashboard.jsx'
@@ -22,6 +24,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       {/* Public routes */}
       <Route index element={<Dashboard />} />
+      <Route path="contact" element={<Contact />} />   {/* <-- Added Contact route */}
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
       <Route path="*" element={<NotFound />} />
